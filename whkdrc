@@ -10,12 +10,31 @@ win + b                 : Start-Process firefox
 win + e                 : Start-Process explorer
 win + r                 : Start-Process "C:\Program Files\yasb\yasbc.exe"
 
-# Close / float (mirrors Super+Shift+C, Super+V)
+# Close / float / fullscreen (mirrors Super+Shift+C, Super+V, Super+F)
 win + shift + c         : komorebic close
 win + v                 : komorebic toggle-float
+win + f                 : komorebic toggle-maximize
 
-# Screenshot (mirrors Ctrl+Alt+S)
+# Layout toggle (mirrors Super+Space togglesplit)
+win + space             : komorebic cycle-layout next
+
+# Restart YASB (mirrors Super+Shift+Q restart waybar)
+win + shift + q         : Stop-Process -Name yasb -Force; Start-Process "C:\Program Files\yasb\yasb.exe"
+
+# Screenshots (mirrors Super+Print selection, Print fullscreen)
+win + print             : Start-Process ms-screenclip:
+print                   : Start-Process ms-screenclip:
 ctrl + alt + s          : Start-Process ms-screenclip:
+
+# Volume (mirrors XF86 keys)
+volume_up               : (New-Object -ComObject WScript.Shell).SendKeys([char]175)
+volume_down             : (New-Object -ComObject WScript.Shell).SendKeys([char]174)
+volume_mute             : (New-Object -ComObject WScript.Shell).SendKeys([char]173)
+
+# Media (mirrors XF86AudioPlay/Next/Prev)
+media_play_pause        : (New-Object -ComObject WScript.Shell).SendKeys([char]179)
+media_next_track        : (New-Object -ComObject WScript.Shell).SendKeys([char]176)
+media_prev_track        : (New-Object -ComObject WScript.Shell).SendKeys([char]177)
 
 # Focus windows with vim keys (mirrors Super+H/J/K/L)
 win + h                 : komorebic focus left
